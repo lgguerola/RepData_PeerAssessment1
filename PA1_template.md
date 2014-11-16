@@ -1,4 +1,3 @@
-
 # Reproducible Research: Peer Assessment 1
 
 ## Loading and preprocessing the data
@@ -146,26 +145,14 @@ filled.data$date <- as.Date(filled.data$date)
 filled.data$day <- sapply(filled.data$date, FUN=weekday.or.weekend)
 ```
 
-```
-## Error in FUN(X[[1L]], ...): invalid date
-```
-
 Now, let's make a panel plot containing plots of average number of steps taken
 on weekdays and weekends.
 
 ```r
 averages <- aggregate(steps ~ interval + day, data=filled.data, mean)
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'day' not found
-```
-
-```r
 ggplot(averages, aes(interval, steps)) + geom_line() + facet_grid(day ~ .) +
     xlab("5-minute interval") + ylab("Number of steps")
 ```
 
-```
-## Error in layout_base(data, rows, drop = drop): At least one layer must contain all variables used for facetting
-```
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png) 
+
